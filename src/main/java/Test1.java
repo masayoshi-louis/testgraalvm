@@ -70,7 +70,7 @@ public class Test1 {
         js1.changeStr(obj1);
         System.out.println(obj1.str);
 
-        Value jsObj2 = polyglot.eval("js", "obj={str:\"a\"};obj;");
+        Value jsObj2 = polyglot.eval("js", "({str:\"a\"})");
         System.out.println(jsObj2.getMemberKeys());
         IJsObj obj2 = jsObj2.as(IJsObj.class);
         System.out.println(obj2.str());
