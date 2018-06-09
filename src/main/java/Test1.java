@@ -33,6 +33,8 @@ public class Test1 {
         void addMember(Object obj);
 
         void callFn(Object pyObj, Consumer<Object> fn);
+
+        void makePyObj();
     }
 
     public interface IJsObj {
@@ -61,6 +63,9 @@ public class Test1 {
 
     public static void main(String[] args) throws IOException {
         Context polyglot = Context.newBuilder().build();
+        polyglot.initialize("js");
+        polyglot.initialize("python");
+
         Value js1Evaled = polyglot.eval(Source.newBuilder("js", new File("js1.js")).build());
         Js1 js1 = js1Evaled.as(Js1.class);
 
@@ -102,6 +107,8 @@ public class Test1 {
         js1.callFn(py1, x -> System.out.println("callback: " + x));
 
         py1.applyFn(x -> x * 10);
+
+        js1.makePyObj();
     }
 
 }
