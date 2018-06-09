@@ -30,8 +30,8 @@ obj.callFn = function (pyObj, fn) {
 };
 
 obj.makePyObj = function () {
-    var c1 = Polyglot.eval("python", "C1()")
-    obj.addFn(c1)
+    var c1 = Polyglot.eval("python", "C1()");
+    obj.addFn(c1);
     c1.showYourself()
 };
 
